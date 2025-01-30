@@ -364,3 +364,18 @@ config.locais = {
 }
 
 config.logo = "http//127.0.0.1/ultimate/logos/Tunning.png" -- link do banner quando abre a tunagem
+
+
+config.permission = {
+	["turtle"] = {
+		"perm.turtletunar","admin.permissao"
+	},
+
+	["sto"] = {
+		"perm.stotunar","admin.permissao"
+	},
+
+	["lscustom"] ={
+		"perm.lscustomtunar","admin.permissao"
+	}
+}

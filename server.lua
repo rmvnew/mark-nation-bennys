@@ -25,17 +25,22 @@ local using_bennys = {}
 function src.checkPermission(mecanica)
     local source = source
     local user_id = vRP.getUserId(source)
-    
-    if mecanica == "turtle" and vRP.hasPermission(user_id, "perm.turtletunar") then
-        return true
-    elseif mecanica == "sto" and vRP.hasPermission(user_id, "perm.stotunar") then
-        return true
-    elseif mecanica == "lscustom" and vRP.hasPermission(user_id, "perm.lscustomtunar") then
-        return true
+
+    if not user_id then return false end -- Garante que o usuário seja válido
+
+    local perms = config.permission[mecanica] -- Obtém as permissões associadas à mecânica especificada
+
+    if perms then
+        for _, permission in pairs(perms) do
+            if vRP.hasPermission(user_id, permission) then
+                return true
+            end
+        end
     end
-    
+
     return false
 end
+
 
 
 
